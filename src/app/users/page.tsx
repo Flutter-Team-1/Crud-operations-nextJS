@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Pagination from "@/components/paginations";
 import TopBar from "@/components/topBar";
 import { useRouter } from "next/navigation";
+import Loader from "@/components/loader";
 let users = [
    {
       "id": "673e0a6e2cc829cf5c571b34",
@@ -131,11 +132,13 @@ export default function Home() {
    const [usersData, setUsersData] = useState(users);
    const [pageNumber, setPageNumber] = useState(1);
    const [totalPages, setTotalPages] = useState(1);
+   const [loader, setLoader] = useState(false);
 
    const onPageChange = (event: any) => {
       setPageNumber(event)
    }
    const addUser = () => {
+      setLoader(true)
       router.push('/users/userForm')
    }
    return (<>
@@ -209,6 +212,7 @@ export default function Home() {
                </div>)
             }
          </div>
+         {loader && <Loader></Loader>}
       </div>
    </>
    );

@@ -19,7 +19,7 @@ const TopBar = () => {
     return (<>
         <div className="bg-gray-100 p-4 flex justify-between items-center">
             <div>
-                <h1 className="text-2xl font-bold" onClick={() => router.push('/')}>User form</h1>
+                <h1 className="text-2xl font-bold">User form</h1>
             </div>
             {/* <div className="flex justify-center flex-grow">
                 {paths.map(({ label, path }) => (
