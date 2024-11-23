@@ -78,7 +78,6 @@ const Contact = () => {
             <div className="flex items-center mb-4">
                <h1 className="text-3xl font-semibold text-gray-800">Add user</h1>
                <div className="border-b-2 border-gray-300 flex-grow ml-4"></div>
-
             </div>
             {!success ? (
                <div>
@@ -152,25 +151,26 @@ const Contact = () => {
                            className="focus:ring focus:ring-blue-500"
                         />
                      </Grid>
-                     <div className="mt-8 flex justify-end space-x-4">
-                        <Button
-                           variant="outlined"
-                           color="primary"
-                           onClick={onCancel}
-                           className="transition-all hover:bg-gray-100"
-                        >
-                           Cancel
-                        </Button>
-                        <Button
-                           type="submit"
-                           variant="contained"
-                           color="primary"
-                           className="transition-all hover:shadow-md"
-                        >
-                           Submit
-                        </Button>
-                     </div>
                   </Grid>
+                  <div className="border-b-2 border-gray-300 flex-grow my-8 w-full"></div>
+                  <div className=" flex justify-end space-x-4">
+                     <Button
+                        variant="outlined"
+                        color="primary"
+                        onClick={onCancel}
+                        className="transition-all hover:bg-gray-100"
+                     >
+                        Cancel
+                     </Button>
+                     <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        className="transition-all hover:shadow-md"
+                     >
+                        Submit
+                     </Button>
+                  </div>
                   {/* <form onSubmit={onSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
                      <TextField
