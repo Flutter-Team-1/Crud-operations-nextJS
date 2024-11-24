@@ -1,6 +1,6 @@
 'use client'
 import TopBar from '@/components/topBar';
-import { form } from '@/interfaces/userInterfaces';
+import { userForm } from '@/interfaces/userInterfaces';
 import { TextField, Alert, Button, InputAdornment, MenuItem, Select } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { useRouter } from 'next/navigation';
@@ -14,9 +14,9 @@ export const formType = {
 }
 const Contact = () => {
    const [success, setSuccess] = useState(false);
-   const [contactForm, setContactForm] = useState<form>(formType);
-   const [formErrors, setformErrors] = useState<form>(formType);
-   const [formTouched, setFormTouched] = useState<form>(formType);
+   const [contactForm, setContactForm] = useState<userForm>(formType);
+   const [formErrors, setformErrors] = useState<userForm>(formType);
+   // const [formTouched, setFormTouched] = useState<userForm>(formType);
    const [alertMsg, setAlertMsg] = useState('');
    const router = useRouter();
 
@@ -45,8 +45,9 @@ const Contact = () => {
    }
 
    const onInputBlur = (event: { target: { name: string }; }) => {
-      const name = event.target.name;
-      setFormTouched((formDetails) => ({ ...formDetails, [name]: true }))
+      console.log(event)
+      // const name = event.target.name;
+      // setFormTouched((formDetails) => ({ ...formDetails, [name]: true }))
 
    }
 
@@ -163,112 +164,14 @@ const Contact = () => {
                         Cancel
                      </Button>
                      <Button
-                        type="submit"
                         variant="contained"
                         color="primary"
                         className="transition-all hover:shadow-md"
+                        onClick={() => onSubmit()}
                      >
                         Submit
                      </Button>
                   </div>
-                  {/* <form onSubmit={onSubmit}>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
-                     <TextField
-                        id="firstName"
-                        name="firstName"
-                        label="First Name"
-                        variant="outlined"
-                        value={contactForm.firstName}
-                        onBlur={onInputBlur}
-                        onChange={onInputChange}
-                        className="focus:ring focus:ring-blue-500"
-                     />
-                     <TextField
-                        id="lastName"
-                        name="lastName"
-                        label="Last Name"
-                        variant="outlined"
-                        value={contactForm.lastName}
-                        onBlur={onInputBlur}
-                        onChange={onInputChange}
-                        className="focus:ring focus:ring-blue-500"
-                     />
-                     <TextField
-                        id="email"
-                        name="email"
-                        label="Email"
-                        variant="outlined"
-                        value={contactForm.email}
-                        onBlur={onInputBlur}
-                        onChange={onInputChange}
-                     // className="focus:ring focus:ring-blue-500"
-                     />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-5">
-                     <TextField
-                        id="city"
-                        name="city"
-                        label="City"
-                        variant="outlined"
-                        value={contactForm.city}
-                        onBlur={onInputBlur}
-                        onChange={onInputChange}
-                        fullWidth
-                        className="focus:ring focus:ring-blue-500"
-                     />
-                     <TextField
-                        id="state"
-                        name="state"
-                        label="State"
-                        variant="outlined"
-                        value={contactForm.state}
-                        onBlur={onInputBlur}
-                        onChange={onInputChange}
-                        fullWidth
-                        className="focus:ring focus:ring-blue-500"
-                     />
-                     <TextField
-                        id="country"
-                        name="country"
-                        label="Country"
-                        variant="outlined"
-                        value={contactForm.country}
-                        onBlur={onInputBlur}
-                        onChange={onInputChange}
-                        fullWidth
-                        className="focus:ring focus:ring-blue-500"
-                     />
-                     <TextField
-                        id="zipcode"
-                        name="zipcode"
-                        label="Zip Code"
-                        variant="outlined"
-                        value={contactForm.zipcode}
-                        onBlur={onInputBlur}
-                        onChange={onInputChange}
-                        fullWidth
-                        className="focus:ring focus:ring-blue-500"
-                     />
-                  </div>
-                  <div className="mt-8 flex justify-end space-x-4">
-                     <Button
-                        variant="outlined"
-                        color="primary"
-                        onClick={onCancel}
-                        className="transition-all hover:bg-gray-100"
-                     >
-                        Cancel
-                     </Button>
-                     <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        className="transition-all hover:shadow-md"
-                     >
-                        Submit
-                     </Button>
-                  </div>
-               </form> */}
                </div>
             ) : (
                <div className="thank-you-container p-6 bg-green-50 rounded-lg shadow-md">

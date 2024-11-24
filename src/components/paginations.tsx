@@ -25,7 +25,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
     };
 
     let startPage = Math.max(1, currentPage - Math.floor(5 / 2));
-    let endPage = Math.min(totalPages, startPage + 5 - 1);
+    const endPage = Math.min(totalPages, startPage + 5 - 1);
 
     if (endPage - startPage + 1 < 5) {
         startPage = Math.max(1, endPage - 5 + 1);
@@ -42,7 +42,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
                 className={`px-1 rounded-l ${isFirstPage ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : 'bg-black text-white hover:bg-black-500'}`}
             ><i className="ri-arrow-left-s-line"></i>
             </button>
-            {pageNumbers.map((page: any) => (
+            {pageNumbers.map((page: number) => (
                 <button
                     key={page}
                     onClick={() => handlePageClick(page)}

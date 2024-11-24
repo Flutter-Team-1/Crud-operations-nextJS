@@ -29,10 +29,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
          error: `Action ${action} is not allowed for method ${method}.`,
       });
    }
-   catch (error: any) {
+   catch (error: unknown) {
+      if (error instanceof Error) {
+         return res.status(500).json({
+            success: false,
+            error: error.message
+         });
+      }
       return res.status(500).json({
          success: false,
-         error: error.message
+         error: 'An unknown error occurred'
       });
    }
+
 }

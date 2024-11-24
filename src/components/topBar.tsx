@@ -1,21 +1,21 @@
 "use client"
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+// usePathname,
+import { useRouter } from "next/navigation";
+// import { useEffect, useState } from "react";
 const TopBar = () => {
-    const pathname = usePathname();
+    // const pathname = usePathname();
     const router = useRouter();
-    const [ActiveRouter, setActiveRouter] = useState("");
-    const paths = [
-        { label: 'Brands', path: '/brands' },
-        { label: 'Transcations', path: '/transcations' }
-    ];
+    // const [ActiveRouter, setActiveRouter] = useState("");
+    // const paths = [
+    //     { label: 'Brands', path: '/brands' },
+    //     { label: 'Transcations', path: '/transcations' }
+    // ];
     const logout = () => {
         router.replace('/')
     }
-    useEffect(() => {
-        setActiveRouter(pathname)
-    }, [])
+    // useEffect(() => {
+    //     setActiveRouter(pathname)
+    // }, [])
     return (<>
         <div className="bg-gray-100 p-4 flex justify-between items-center">
             <div>
