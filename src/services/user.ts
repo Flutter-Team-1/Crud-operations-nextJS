@@ -1,8 +1,8 @@
 import { userForm } from "@/interfaces/userInterfaces";
 
-export async function userService(userDetails: userForm) {
+export async function addUser(userDetails: userForm) {
    try {
-      const response = await fetch(`/api/user}`, {
+      const response = await fetch(`/api/user`, {
          method: 'POST',
          headers: {
             'Content-Type': 'application/json',

@@ -1,4 +1,5 @@
 'use client'
+import React from 'react';
 import TopBar from '@/components/topBar';
 import { userForm } from '@/interfaces/userInterfaces';
 import { TextField, Alert, Button, InputAdornment, MenuItem, Select } from '@mui/material';
@@ -6,13 +7,13 @@ import Grid from '@mui/material/Grid2';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export const formType = {
-   name: 'uma',
+const formType: userForm = {
+   name: '',
    email: '',
    mobile: '',
    countryCode: '+91'
 }
-const Contact = () => {
+const Contact: React.FC = () => {
    const [success, setSuccess] = useState(false);
    const [contactForm, setContactForm] = useState<userForm>(formType);
    const [formErrors, setformErrors] = useState<userForm>(formType);
